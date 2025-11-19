@@ -70,6 +70,7 @@
         rpar {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <10 9>;
+            layers = <0>;
         };
 
         minus {
