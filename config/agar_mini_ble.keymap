@@ -114,10 +114,10 @@
 
         Base {
             bindings = <
-&gresc         &kp Q         &kp W     &kp E  &kp R        &kp T  &kp Y      &kp U  &kp I      &kp O          &kp P        &kp DELETE         &kp BSPC
-&mt LCTRL TAB  &kp A         &kp S     &kp D  &kp F        &kp G  &kp H      &kp J  &kp K      &kp L          &kp SEMI     &kp RET
-&kp LSHFT      &kp Z         &kp X     &kp C  &kp V        &kp B  &kp N      &kp M  &kp COMMA  &kp DOT        &kp RSHIFT   &lt 3 RIGHT_ARROW
-               &kp LEFT_WIN  &kp LALT         &lt 1 SPACE         &kp SPACE                    &kp RIGHT_ALT  &bootloader
+&gresc         &kp Q           &kp W     &kp E  &kp R        &kp T  &kp Y      &kp U  &kp I      &kp O          &kp P        &kp DELETE         &kp BSPC
+&mt LCTRL TAB  &kp A           &kp S     &kp D  &kp F        &kp G  &kp H      &kp J  &kp K      &kp L          &kp SEMI     &kp RET
+&kp LSHFT      &kp Z           &kp X     &kp C  &kp V        &kp B  &kp N      &kp M  &kp COMMA  &kp DOT        &kp RSHIFT   &lt 3 RIGHT_ARROW
+               &lt 4 LEFT_WIN  &kp LALT         &lt 1 SPACE         &kp SPACE                    &kp RIGHT_ALT  &bootloader
             >;
         };
 
@@ -145,6 +145,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans      &trans        &kp ENTER
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PREV  &kp C_NEXT  &kp C_VOL_UP  &trans
         &trans  &trans          &trans          &trans                      &kp C_MUTE  &kp C_VOL_DN
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans                          &trans                   &trans                  &trans  &trans          &trans
             >;
         };
     };
