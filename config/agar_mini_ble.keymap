@@ -110,28 +110,64 @@
         };
     };
 
+    behaviors {
+        LT_tap: LT_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_TAP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <50>;
+            flavor = "tap-preferred";
+            retro-tap;
+        };
+
+        MT_tap: MT_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            retro-tap;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         Base {
             bindings = <
-&gresc         &kp Q           &kp W     &kp E  &kp R        &kp T  &kp Y      &kp U  &kp I      &kp O          &kp P        &kp DELETE         &kp BSPC
-&mt LCTRL TAB  &kp A           &kp S     &kp D  &kp F        &kp G  &kp H      &kp J  &kp K      &kp L          &kp SEMI     &kp RET
-&kp LSHFT      &kp Z           &kp X     &kp C  &kp V        &kp B  &kp N      &kp M  &kp COMMA  &kp DOT        &kp RSHIFT   &lt 3 RIGHT_ARROW
-               &lt 4 LEFT_WIN  &kp LALT         &lt 1 SPACE         &kp SPACE                    &kp RIGHT_ALT  &bootloader
-            >;
-        };
-
-        arrow {
-            bindings = <
-&kp GRAVE  &trans  &kp HOME        &kp UP_ARROW    &kp END          &kp PAGE_UP      &kp N6            &kp N7             &kp N8  &kp N9     &kp N0            &kp MINUS  &kp EQUAL
-&trans     &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &trans     &kp SINGLE_QUOTE  &trans
-&trans     &trans  &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT  &trans            &trans             &trans  &kp SLASH  &trans            &trans
-           &trans  &trans                          &trans                            &trans                                       &trans     &trans
+&gresc               &kp Q         &kp W             &kp E  &kp R            &kp T  &kp Y            &kp U  &kp I      &kp O          &kp P        &kp DELETE   &kp BSPC
+&mt LCTRL BACKSPACE  &kp A         &kp S             &kp D  &kp F            &kp G  &kp H            &kp J  &kp K      &kp L          &kp SEMI     &kp RET
+&kp LSHFT            &kp Z         &kp X             &kp C  &kp V            &kp B  &kp N            &kp M  &kp COMMA  &kp DOT        &kp RSHIFT   &lt 4 SLASH
+                     &kp LEFT_WIN  &MT_tap LALT TAB         &LT_tap 1 ENTER         &LT_tap 3 SPACE                    &kp RIGHT_ALT  &bootloader
             >;
         };
 
         number {
+            bindings = <
+&kp GRAVE  &kp N1  &kp N2   &kp N3   &kp N4   &kp N5  &kp N6     &kp N7  &kp N8     &kp N9   &kp N0     &kp MINUS  &kp EQUAL
+&trans     &kp F1  &kp F2   &kp F3   &kp F4   &kp F5  &kp F6     &kp F7  &kp F8     &trans   &kp SEMI   &kp ENTER
+&kp LSHFT  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans     &trans  &kp COMMA  &kp DOT  &kp RSHFT  &kp FSLH
+           &trans  &trans            &trans           &kp SPACE                     &trans   &trans
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &trans     &trans           &trans  &trans
+&trans          &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans           &trans
+&kp LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &kp RIGHT_SHIFT  &trans
+                &trans  &trans          &trans          &trans                      &trans     &trans                   &trans
+            >;
+        };
+
+        fuction {
             bindings = <
 &kp CAPSLOCK  &kp F1           &kp F2          &kp F3  &kp F4     &kp F5  &kp F6  &kp F7  &kp F8  &kp F9    &kp F10    &kp F11    &kp F12
 &trans        &kp N1           &kp N2          &kp N3  &kp N4     &kp N5  &kp N6  &kp N7  &kp N8  &kp N9    &kp N0     &kp ENTER
